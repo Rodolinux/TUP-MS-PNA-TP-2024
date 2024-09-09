@@ -1,0 +1,85 @@
+Bono_de_incentivos(id_bono,año,mes,dni,nombre_apellido_empleado,cargo,nombre_sucursal,total_productividad,total_bono_capacitacion)
+
+Stock_diario (fecha, nombre_articulo, sucursal, cantidad, estado[entra/sale])
+
+Facturacion (nombre_cliente, nro_sucursal_venta, tipo_comprobante, fecha_comprobante, {nombre_producto_facturado, precio_unitario, precio_IVA, cantidad}, forma_pago) (Es necesaria una clave artificial?)
+
+Clientes (dni, nombre, dirección_entrega, localidad, código_postal, teléfono, email)
+
+Compras (fecha_compra, nombre_articulo_comprado, cantidad, estado_compra[pendiente/pagada/anulada], nombre_proveedor, cuit, tipo_IVA, dirección, ciudad, provincia, insumos_provisto, habilitado[si/no])
+
+Pedidos (dni, nombre_cliente, sucursal, fecha_planificada_fabricacion, {nombre_receta, ingredientes_receta, unidad_y_cantidad_por_ingrediente, detalle_confeccion_receta})
+
+1FN: ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Bono_de_incentivos(id_bono[PK], año,mes,dni,nombre_apellido_empleado,cargo,nombre_sucursal,total_productividad,total_bono_capacitacion)
+
+Stock_diario (fecha[pk],nombre_articulo[pk], sucursal, cantidad, estado[entra/sale])
+
+Facturacion(nro_factura[PK],nombre_cliente, nro_sucursal_venta, tipo_comprobante, fecha_comprobante, forma_pago)
+
+Producto_facturado(nro_factura[PK],nombre_producto_facturado[PK],precio_IVA,precio_unitario,cantidad)
+
+Clientes(dni[PK], nombre, dirección_entrega, localidad, código_postal, teléfono, email)
+
+Compras(nro_compra[PK],fecha_compra, nombre_articulo_comprado, cantidad, estado_compra[pendiente/pagada/anulada], nombre_proveedor, cuit, tipo_IVA, dirección, ciudad, provincia, insumos_provisto, habilitado[si/no])
+
+Pedidos (dni[PK], nombre_cliente, sucursal, fecha_planificada_fabricacion)
+
+Recetas(dni[PK],nombre_receta[PK], detalle_confeccion_receta)
+
+Ingredientes(dni[PK],nombre_receta[PK],ingredientes_receta,unidad_y_cantidad_por_ingrediente)
+
+2FN: ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Bono_de_incentivos(id_bono[pk],dni_empleado[pk],año,mes,nombre_sucursal,total_productividad,total_bono_capacitacion)
+    Empleados(dni[pk], nombre, apellido, cargo)
+
+Stock_diario (fecha[pk],nombre_articulo[pk], sucursal, cantidad, estado[entra/sale])
+
+Facturacion(nro_factura[PK],nombre_cliente, nro_sucursal_venta, tipo_comprobante, fecha_comprobante, forma_pago)
+    Producto_facturado(nro_factura[PK],nombre_producto_facturado[PK],precio_IVA,precio_unitario,cantidad)
+
+Clientes(dni[PK], codigo_direccion[pk], nombre, teléfono, email)
+    Direccion (dni[pk], codigo_direccion[pk],dirección_entrega,localidad,código_postal)
+
+Compras(nro_compra[PK],fecha_compra, nombre_articulo_comprado, cantidad, estado_compra[pendiente/pagada/anulada], cuit_proveedor[PK], insumos_provisto, habilitado[si/no])
+    Proveedor(nro_compra[PK],cuit[PK], nombre, tipo_IVA, dirección,ciudad,provincia)
+
+Pedidos (dni[PK], nombre_cliente, sucursal, fecha_planificada_fabricacion)
+    Recetas(dni[PK],nombre_receta[PK], detalle_confeccion_receta)
+        Ingredientes(dni[PK],nombre_receta[PK],ingredientes_receta,unidad_y_cantidad_por_ingrediente)
+
+3FN: ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Bono_de_incentivos(id_bono[PK], dni_empleado[PK],año,mes,nombre_sucursal,total_bono_capacitacion,total_productividad)
+    Empleados(dni[PK], nombre, apellido, cargo)
+
+Stock_diario (fecha[pk],nombre_articulo[pk], sucursal, cantidad, estado[entra/sale])
+
+Facturacion(
+    nro_factura[PK],
+    nombre_cliente,
+    nro_sucursal_venta, 
+    tipo_comprobante, 
+    fecha_comprobante, 
+    forma_pago)
+
+Producto_facturado(nro_factura[PK],nombre_producto_facturado[PK],precio_IVA,precio_unitario,cantidad)
+
+Clientes(dni[PK], codigo_direccion[pk], nombre, teléfono, email)
+
+
+Direccion (codigo_direccion[pk],codigo_ciudad[pk], dirección_entrega)
+
+Ciudades(codigo_ciudad[PK], codigo_postal, ciudad, provincia)
+
+Compras(nro_compra[PK],fecha_compra, nombre_articulo_comprado, cantidad, estado_compra[pendiente/pagada/anulada], cuit_proveedor[PK], insumos_provisto, habilitado[si/no])
+
+Proveedor(nro_compra[FK],cuit[PK], codigo_dirección[fk],codigo_ciudad[fk], nombre, tipo_IVA)
+
+Pedidos (dni[PK], nombre_cliente, sucursal, fecha_planificada_fabricacion)
+
+Recetas(dni[PK],nombre_receta[PK], detalle_confeccion_receta)
+    
+Ingredientes(nombre_receta[PK],ingredientes_receta,unidad_y_cantidad_por_ingrediente)
