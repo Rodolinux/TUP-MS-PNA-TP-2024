@@ -83,3 +83,50 @@ Pedidos (dni[PK], nombre_cliente, sucursal, fecha_planificada_fabricacion)
 Recetas(dni[PK],nombre_receta[PK], detalle_confeccion_receta)
     
 Ingredientes(nombre_receta[PK],ingredientes_receta,unidad_y_cantidad_por_ingrediente)
+------------------------------------------------------------------
+
+
+Disclaimer: se modificaton y/o agregaron tablas en el DER debido a correcciones para un mejor diseño para encarar el proyecto
+
+Usuario(user_name[PK], password, dni_usuario[FK])
+
+Clientes (dni_cliente[PK], codigo_direccion[FK], nombre,telefono,email)
+
+Direccion (codigo_direccion[PK], codigo_ciudad[pk],direccion_entrega)
+
+Ciudades (codigo_ciudad[pk],codigo_postal,ciudad,provincia)
+
+Facturacion (nro_factura[pk],tipo_comprobante[pk],dni_cliente[fk],nro_sucursal_venta,fecha_comprobante,forma_pago,importe)
+
+Producto_facturado(nro_factura[PK],nro_comprobante[pk],dni_cliente[fk],id_pedido[fk], precio_IVA,precio_unitario,cantidad)
+
+Vianda(id_pedido[pk], dni_cliente[pk],id_sucursal[fk],fecha)
+
+Bono_de_incentivos(id_bono[PK], dni_empleado[PK],año,mes, cargo, nombre_sucursal,total_bono_capacitacion,total_productividad)
+
+Empleados(dni_empleado[PK], nombre,codigo_direccion[pk], telefono,email,rol)
+
+Distribucion(dni_cadete[pk], fecha[pk], id_pedido[pk])
+
+Pedidos(id_receta[pk],id_pedido[pk],dni_cliente[fk],cantidad,id_sucursal[fk], fecha_planificada_fabricacion, importe)
+
+Comandas(fecha[pk],id_sucursal[pk],id_pedido[pk])
+
+Sucursal(id_sucursal[pk],nombre_sucursal,telefono,dirección_sucursal,email)
+
+Proveedor(nro_compra[FK], codigo_dirección[fk], nombre, tipo_IVA)
+
+Compras(nro_compra[PK],
+id_ingredientes[pk],
+fecha_compra,
+cantidad, 
+estado_compra[pendiente/pagada/anulada],
+ cuit_proveedor[PK], 
+ insumos_provisto, 
+ habilitado[si/no])
+
+Stock_ingredientes(nombre_receta[pk],id_ingredientes[pk],id_sucursal[pk],Ingredientes,unidad_y_cantidad_por_ingrediente,fecha_ultima_modificacion,cantidad,estado)
+
+Ingredientes_por_receta(id_receta[pk],id_ingredientes[pk],cantidad_utilizada)
+
+Recetas(dni_cliente[pk],id_receta[pk], nombre_receta,detalle_confeccion_receta)
