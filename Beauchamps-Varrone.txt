@@ -1,0 +1,13 @@
+Beauchamps-Varrone regular
+Normalización
+No siguen los pasos de la normalización
+No hay usuarios para clientes.
+Rehacer la normalización
+
+DER - mal 
+El diagrama no lleva flechas. Corregir
+No están identificadas las pk ni las fk. Corregir
+No hay cardinalidad. Corregir
+No hay relación entre inventario y compras
+No hay relacion entre inventario y comandas. Las comandas tiene ingredientes pero no se sabe de donde salen. Quizás de Inventario??? Corregir
+Rehacer el DER
