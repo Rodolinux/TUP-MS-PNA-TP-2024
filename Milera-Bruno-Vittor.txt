@@ -1,0 +1,20 @@
+Milera-Bruno-Vittor
+
+La matería es Metodología de Sistemas
+Normalización:
+La RU está mal planteada. Ej, los datos relacionados a empleados deben ir entre llaves; así como está solo va a haber un solo empleado.
+El gerente es un tipo de empleado, por lo que no es necesario separar en dos campos.
+No debe existir una sola entidad de usuario.
+Rehacer la RU
+
+DER:
+Emplear la cardinalidad con números, no con símbolos.
+Factura incompleta, se compone de 2 tablas y aquí solo hay una. Corregir
+Falta cardinalidad en alguna relación
+No hay usuarios para clientes. Corregir
+Empleado no lleva rol
+Debería haber una entidad entre vianda y cadete dedicada al despacho de las mismas a los clientes.
+No hay Receta. A esta entidad debería vincurlase inventario al emplear los insumos en la fabricación de las viandas. 
+Quitar la relación Inventario-Pedido.
+La descripción de la relación entre Producto y proveedor es “Entrega” y no “Compra”
+
