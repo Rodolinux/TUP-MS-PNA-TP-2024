@@ -1,0 +1,7 @@
+Astrada-Caceres-Lacabanne 
+Normalización 
+La RU va entre paréntesis y el resto debe ir en llaves.
+
+DER 
+El cadete debe entregar la vianda al cliente. No está esa relación. Corregir
+Los atributos deben ir en el DER para mantener la coherencia en el diseño. Corregir
