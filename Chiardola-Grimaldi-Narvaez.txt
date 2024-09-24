@@ -1,0 +1,10 @@
+Chiardola-Grimaldi-Narvaez
+Normalización:
+Falta el nombre del cadete en cadete
+DER
+No hay relación entre Insumo y Stock. Corregir
+No hay relación entre vianda e Insumo. Corregir
+No hay entidad receta. Corregir
+El despacho tiene uno y solo un cadete??? Corregir
+Debería haber una relación entre comanda y vianda. Todo lo hacen por sucursal. Tengan en cuenta que esto es DER y no diagrama de clases.
+Reflejar las correcciones en la normalización. 
