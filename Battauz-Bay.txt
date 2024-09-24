@@ -1,0 +1,13 @@
+Battauz-Bay
+Normalización
+Id_facturas_items en facturas_items es innecesario ya que se encuentra el id_vianda. Corregir
+Está mal planteada de la RU. Para la estructura repetitiva de compras solo se necesita el id_sucursal. Se estan repitiendo las tablas porque repiten los mismos datos en diferentes entidades en la RU. Al corregirla reflejarla en el DER.
+
+DER
+Factura_items: pk incorrectos, no coinciden con la normalización. Corregir
+Los despachos tienen uno y solo 1 cadete??? Corregir
+Los cadetes no tienen que tener id_vianda como atributo, pero si el despacho. Corregir
+Los cadetes no tienen relación con el cliente, despacho tampoco tiene datos del cliente. Corregir
+Las recetas deben tener relación con los insumos que se emplean para cocinar.Falta la cantidad en la entidad receta. Corregir
+Tabla Articulos innecesaria ya que si ponen el articulo en compra_items junto con unidad de medida se eliminaría la necesidad de la tabla. 
+
