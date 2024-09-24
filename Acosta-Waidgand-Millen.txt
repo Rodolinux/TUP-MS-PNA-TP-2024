@@ -1,0 +1,22 @@
+Acosta-Waidgand-Millen 
+Normalización: 
+Revisar en factura que tiene muchos clientes por las llaves (reveer las llaves); La factura no tiene clientes, sino que los clientes tienen facturas.
+En la 1FN aparece gerente_sucursal que no está ni el RU ni en las otras FN
+Codigo_postal aparece en las FN pero no en la RU. Corregir
+Id_sucursal está en la 1FN pero no en la RU.
+En 1FN en capacitación se pierde cuit_empresa y id_sucursal. 
+Revisar que deben haber usuarios para clientes y para empleados.
+¿De dónde salen los ingredientes de Receta? ¿Acaso no son los insumos que se adquieren a los proveedores? Contemplarlos como entidad y relacionarlos con inventario, para se consumidos desde allí. Agregar la cantidad a la entidad. Corregir
+Nombre_Articulo es la descripción de un insumo, que correspondería a otra entidad
+
+DER:
+No debe existir una sola tabla de usuarios, tanto para clientes como para empleados. Corregir
+La factura está incompleta. Debe corresponder con la normalización
+Una receta solo puede estár en una sola comanda???? Corregir
+La Entidad compra no requiere datos georreferenciados. Corregir
+La entidad inventario está desconectada de la entidad compras y de la comanda. Corregir
+La entidad Comanda tiene duplicado el atributo Sucursal, así como los atributos que corresponden a receta. Corregir
+La Receta no tiene cantidad
+La entidad Cliente tiene número de comprobante y Tipo de comprobante que corresponden a la entidad Factura. Esto no es necesario ya que se mantiene la relación con la tabla de facturas. Corregir
+Hay entidades que no tienen identificadas las pk (ej. Vianda)
+Las correcciones del DER deben reflejarse en la normalización
