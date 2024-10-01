@@ -1,0 +1,15 @@
+Zualet-Terzano-Prettis 
+Normalización: regular
+La RU es una ensalada de atributos. Emplear llaves para identificar estructuras repetitivas. 
+Aparece muchas veces dni o nombre sin identificar a qué corresponden.
+Empleado es confuso.
+Empleado y usuario comparten  campos duplicados. Corregir
+Stock y Stock diario cumplen la misma función. Corregir
+Me da la impresión de que corrigieron el der pero no actualizaron la normalización. Corregir
+Rehacer la RU y volver a normalizar.
+
+DER:bien
+No están identificadas ni las pk ni las fk. Corregir
+El usuario_cliente tiene rol y esto es incorrecto. Corregir
+Stock se relaciona con Receta, no con Comanda. Corregir
+Tratar de que el DER y la normalización coincidan.
