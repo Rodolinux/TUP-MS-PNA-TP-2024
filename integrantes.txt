@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 Cardozo Jonatan
 Perez Bautista
 Tomas Katzenelson
 
+=======
+Jonatan Cardozo
+Bautista Perez
+Tomas Katzenelson
+>>>>>>> 1130c93d56ae6261271c24d1205d561016f0355e

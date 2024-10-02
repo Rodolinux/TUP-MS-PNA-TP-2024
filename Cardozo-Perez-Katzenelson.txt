@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Cardozo-Perez-Katzenelson
 Normalización:
 Al no haber llaves no hay estructuras repetitivas, y entonces, ¿Que sacaron en la 1FN????
@@ -11,3 +12,18 @@ Usuario_cliente no lleva rol
 Factura maestro y detalle incorrecta. Revisar los PK.
 Comanda referencia a cliente en la fk pero no está la relación a cliente
 Rehacer DER a partir de la normalización corregida.
+=======
+Cardozo-Perez-Katzenelson
+Normalización:
+Al no haber llaves no hay estructuras repetitivas, y entonces, ¿Que sacaron en la 1FN????
+No es necesario Gerente ya que es un tipo de empleados
+Que es fabricacion_viandas?????
+Rehacer la normalización
+
+
+DER:
+Usuario_cliente no lleva rol
+Factura maestro y detalle incorrecta. Revisar los PK.
+Comanda referencia a cliente en la fk pero no está la relación a cliente
+Rehacer DER a partir de la normalización corregida.
+>>>>>>> 1130c93d56ae6261271c24d1205d561016f0355e
