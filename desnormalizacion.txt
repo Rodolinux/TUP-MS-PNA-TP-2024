@@ -1,0 +1,234 @@
+3FN:
+
+Usuario(user_name[PK], password, dni_cliente[FK])
+
+Clientes (dni_cliente[PK], codigo_direccion[FK], nombre,telefono,email)
+
+Direccion (codigo_direccion[PK], codigo_ciudad[pk],direccion_entrega)
+
+Ciudades (codigo_ciudad[pk],codigo_postal,ciudad,provincia)
+
+Facturacion (nro_factura[pk],tipo_comprobante[pk],dni_cliente[fk],nro_sucursal_venta,fecha_comprobante,forma_pago,importe)
+
+Producto_facturado(nro_factura[PK],nro_comprobante[pk],dni_cliente[fk],id_pedido[fk], precio_IVA,precio_unitario,cantidad)
+
+Vianda(id_pedido[pk], dni_cliente[pk],id_sucursal[fk],fecha)
+
+Bono_de_incentivos(id_bono[PK], dni_empleado[PK],año,mes, cargo, nombre_sucursal,total_bono_capacitacion,total_productividad)
+
+Empleados(dni_empleado[PK], nombre,codigo_direccion[pk], telefono,email,rol)
+
+LoginEmpleados(user_name[pk], password, dni_empleado[fk])
+
+Distribucion(dni_cadete[pk], fecha[pk], id_pedido[pk])
+
+Pedidos(id_receta[pk],id_pedido[pk],dni_cliente[fk],cantidad,id_sucursal[fk], fecha_planificada_fabricacion, importe)
+
+Comandas(fecha[pk],id_sucursal[pk],id_pedido[pk])
+
+Sucursal(id_sucursal[pk],nombre_sucursal,telefono,dirección_sucursal,email)
+
+Proveedor(nro_compra[FK], codigo_dirección[fk], nombre, tipo_IVA)
+
+Compras(nro_compra[PK],
+id_ingredientes[pk],
+fecha_compra,
+cantidad, 
+estado_compra[pendiente/pagada/anulada],
+ cuit_proveedor[PK], 
+ insumos_provisto, 
+ habilitado[si/no])
+
+Stock_ingredientes(nombre_receta[pk],id_ingredientes[pk],id_sucursal[pk],Ingredientes,unidad_y_cantidad_por_ingrediente,fecha_ultima_modificacion,cantidad,estado)
+
+Ingredientes_por_receta(id_receta[pk],id_ingredientes[pk],cantidad_utilizada)
+
+Recetas(dni_cliente[pk],id_receta[pk], nombre_receta,detalle_confeccion_receta)
+
+2FN:
+
+Clientes (dni_cliente[PK],usuario_cliente[pk], password_cliente, nombre, telefono, email, codigo_direccion, codigo_ciudad, direccion_entrega)
+
+Ciudades (codigo_ciudad[pk],codigo_postal,ciudad,provincia)
+
+Facturacion(nro_factura[PK],nombre_cliente, nro_sucursal_venta, tipo_comprobante, fecha_comprobante, forma_pago, importe)
+
+Producto_facturado(nro_factura[PK],nombre_producto_facturado[PK],precio_IVA,precio_unitario,cantidad)
+
+Bono_de_incentivos(id_bono[PK], dni_empleado[PK],año,mes, cargo, nombre_sucursal,total_bono_capacitacion,total_productividad)
+
+Empleados(dni_empleado[PK], nombre,codigo_direccion[pk], telefono,email,rol, user_name_empleado[pk], password)
+
+Compras(nro_compra[PK],
+id_ingredientes[pk],
+cuit_proveedor[pk],
+fecha_compra,
+nombre_articulo_comprado,
+cantidad,
+estado_compra[pendiente/pagada/anulada],
+cuit_proveedor[PK],
+insumos_provisto,
+habilitado[si/no])
+
+Proveedor(nro_compra[PK],cuit[PK], nombre, tipo_IVA, dirección,ciudad,provincia)
+
+Pedidos(id_pedido[pk],id_receta[pk],cantidad,nombre_sucursal,telefono,dirección_sucursal,email, fecha_planificada_fabricacion,importe, dni_cliente, nombre_cliente)
+
+Recetas(id_receta[PK], dni_cliente[pk], nombre_receta, detalle_confeccion_receta)
+
+Stock_ingredientes(id_receta[pk],ingredientes_receta,unidad_y_cantidad_por_ingrediente,fecha_ultima_modificacion,cantidad,estado)
+
+
+1FN:
+
+Clientes (
+    dni_cliente [PK],
+    usuario_cliente,
+    password_cliente,
+    nombre_cliente,
+    telefono_cliente,
+    email_cliente,
+    codigo_direccion,
+    codigo_ciudad,
+    direccion_entrega
+)
+
+
+Ciudades (
+    codigo_ciudad [PK],
+    codigo_postal,
+    ciudad,
+    provincia
+)
+
+
+Facturacion (
+    nro_factura [PK],
+    nombre_cliente,
+    nro_sucursal_venta,
+    tipo_comprobante,
+    fecha_comprobante,
+    forma_pago,
+    importe
+)
+
+
+Producto_facturado (
+    nro_factura [PK],
+    nombre_producto_facturado [PK],
+    precio_IVA,
+    precio_unitario,
+    cantidad
+)
+
+
+Bono_de_incentivos (
+    id_bono [PK],
+    dni_empleado,
+    año_bono,
+    mes_bono,
+    cargo_empleado,
+    nombre_sucursal,
+    total_bono_capacitacion,
+    total_productividad
+)
+
+
+Empleados (
+    dni_empleado [PK],
+    nombre_empleado,
+    codigo_direccion,
+    telefono_empleado,
+    email_empleado,
+    rol_empleado,
+    user_name_empleado,
+    password_empleado
+)
+
+
+Compras (
+    nro_compra [PK],
+    id_ingredientes,
+    cuit_proveedor,
+    fecha_compra,
+    nombre_articulo_comprado,
+    cantidad_articulo_comprado,
+    estado_compra,
+    insumos_provisto,
+    habilitado
+)
+
+
+Proveedor (
+    nro_compra [PK],
+    cuit_proveedor [PK],
+    nombre_proveedor,
+    tipo_IVA_proveedor,
+    direccion_proveedor,
+    ciudad_proveedor,
+    provincia_proveedor
+)
+
+
+Pedidos (
+    id_pedido [PK],
+    id_receta,
+    cantidad_pedido,
+    nombre_sucursal,
+    telefono_sucursal,
+    direccion_sucursal,
+    email_sucursal,
+    fecha_planificada_fabricacion,
+    importe_pedido,
+    dni_cliente,
+    nombre_cliente
+)
+
+
+Recetas (
+    id_receta [PK],
+    dni_cliente,
+    nombre_receta,
+    detalle_confeccion_receta
+)
+
+
+Stock_ingredientes (
+    id_receta [PK],
+    ingredientes_receta,
+    unidad_y_cantidad_por_ingrediente,
+    fecha_ultima_modificacion,
+    cantidad_ingrediente,
+    estado_ingrediente
+)
+
+RU (
+dni_cliente,
+usuario_cliente,
+password_cliente,
+nombre_cliente,
+telefono_cliente,
+email_cliente,
+codigo_direccion_cliente,
+direccion_entrega_cliente,
+codigo_ciudad_cliente,
+
+{codigo_postal_cliente, ciudad_cliente, provincia_cliente},
+
+{nro_factura, tipo_comprobante, nro_sucursal_venta, fecha_comprobante, forma_pago, importe_factura,
+    {nombre_producto_facturado, precio_IVA_producto, precio_unitario_producto, cantidad_producto}
+},
+{id_receta, nombre_receta, detalle_confeccion_receta,
+    {id_ingredientes_receta, nombre_ingrediente, cantidad_utilizada_ingrediente, estado_ingrediente}
+},
+{id_pedido, cantidad_pedido, fecha_planificada_fabricacion, importe_pedido, 
+    {nombre_sucursal_pedido, telefono_sucursal_pedido, direccion_sucursal_pedido, email_sucursal_pedido}
+},
+{dni_empleado, nombre_empleado, telefono_empleado, email_empleado, rol_empleado, 
+    {id_bono, año_bono, mes_bono, cargo_empleado, total_bono_capacitacion, total_productividad}
+},
+{nro_compra, fecha_compra, estado_compra, cantidad_articulo_comprado, habilitado,
+    {cuit_proveedor, nombre_proveedor, tipo_IVA_proveedor, direccion_proveedor, ciudad_proveedor, provincia_proveedor}
+},
+{ingredientes_stock, unidad_y_cantidad_ingredientes, fecha_ultima_modificacion_ingredientes, cantidad_stock, estado_stock}
+)

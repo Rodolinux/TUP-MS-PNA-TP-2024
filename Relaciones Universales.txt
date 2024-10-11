@@ -44,11 +44,14 @@ Clientes(dni[PK], codigo_direccion[pk], nombre, teléfono, email)
     Direccion (dni[pk], codigo_direccion[pk],dirección_entrega,localidad,código_postal)
 
 Compras(nro_compra[PK],fecha_compra, nombre_articulo_comprado, cantidad, estado_compra[pendiente/pagada/anulada], cuit_proveedor[PK], insumos_provisto, habilitado[si/no])
-    Proveedor(nro_compra[PK],cuit[PK], nombre, tipo_IVA, dirección,ciudad,provincia)
+
+Proveedor(nro_compra[PK],cuit[PK], nombre, tipo_IVA, dirección,ciudad,provincia)
 
 Pedidos (dni[PK], nombre_cliente, sucursal, fecha_planificada_fabricacion)
-    Recetas(dni[PK],nombre_receta[PK], detalle_confeccion_receta)
-        Ingredientes(dni[PK],nombre_receta[PK],ingredientes_receta,unidad_y_cantidad_por_ingrediente)
+
+Recetas(dni[PK],nombre_receta[PK], detalle_confeccion_receta)
+
+Ingredientes(dni[PK],nombre_receta[PK],ingredientes_receta,unidad_y_cantidad_por_ingrediente)
 
 3FN: ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -88,7 +91,7 @@ Ingredientes(nombre_receta[PK],ingredientes_receta,unidad_y_cantidad_por_ingredi
 
 Disclaimer: se modificaton y/o agregaron tablas en el DER debido a correcciones para un mejor diseño para encarar el proyecto
 
-Usuario(user_name[PK], password, dni_usuario[FK])
+Usuario(user_name[PK], password, dni_cliente[FK])
 
 Clientes (dni_cliente[PK], codigo_direccion[FK], nombre,telefono,email)
 
@@ -105,6 +108,8 @@ Vianda(id_pedido[pk], dni_cliente[pk],id_sucursal[fk],fecha)
 Bono_de_incentivos(id_bono[PK], dni_empleado[PK],año,mes, cargo, nombre_sucursal,total_bono_capacitacion,total_productividad)
 
 Empleados(dni_empleado[PK], nombre,codigo_direccion[pk], telefono,email,rol)
+
+LoginEmpleados(user_name[pk], password, dni_empleado[fk])
 
 Distribucion(dni_cadete[pk], fecha[pk], id_pedido[pk])
 
