@@ -1,0 +1,16 @@
+Almeira-Belini-Johnston
+
+Normalización
+En la RU lo de viandas y cadetes va entre llaves. 
+Capacitación va dentro de Empleados
+Lo de pedidos es repetitivo. Así como está va a haber un solo pedido.
+Comanda no tiene id_receta.
+DER
+Un usuario puede realizar más de 1 pedido. Corregir
+Factura Maestro: falta la pk tipo de comprobante. Eliminar ID_Detalle. Corregir
+FacturaDetalle: eliminar id_detalle, agregar nro_comprobante, tipo_comprobante e id_vianda como pk. Corregir
+Rol puede estar en más de 1 empleado. Corregir
+Comanda no tiene id de receta, a pesar de mantener una relación con receta. Corregir
+Despacho debe vincularse a Cliente
+
+
