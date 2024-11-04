@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pedido de Clientes</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+      }
+
+      header h1 {
+        font-size: 1.5em;
+      }
+
+      .selection,
+      .order-list,
+      .delivery-schedule,
+      .address,
+      .summary {
+        margin-bottom: 20px;
+      }
+
+      .order-list table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .order-list th,
+      .order-list td {
+        padding: 8px;
+        text-align: left;
+        border: 1px solid #ccc;
+      }
+
+      button {
+        padding: 8px 16px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #218838;
+      }
+
+      .confirm-btn {
+        width: 100%;
+        padding: 10px;
+        font-size: 1.2em;
+        background-color: #007bff;
+        margin-top: 20px;
+      }
+
+      .confirm-btn:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">Logo</div>
+        <h1>Realizar Pedido</h1>
+        <div class="profile">Perfil</div>
+      </header>
+
+      <section class="selection">
+        <label for="viandaType">Seleccione el tipo de vianda:</label>
+        <select id="viandaType">
+          <option value="general">General</option>
+          <option value="veggie">Veggie</option>
+          <option value="proteico">Protéico</option>
+          <option value="vegano">Vegano</option>
+          <option value="liviano">Liviano</option>
+          <option value="patologias">Adecuado a patologías</option>
+        </select>
+
+        <label for="quantity">Cantidad:</label>
+        <input type="number" id="quantity" min="1" placeholder="0" />
+
+        <button onclick="addToOrder()">Agregar al Pedido</button>
+      </section>
+
+      <section class="order-list">
+        <h2>Lista de Viandas:</h2>
+        <table id="orderTable">
+          <thead>
+            <tr>
+              <th>Tipo</th>
+              <th>Cantidad</th>
+              <th>Subtotal</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Las filas serán agregadas dinamicamente aquí -->
+          </tbody>
+        </table>
+        <p>Total: $<span id="total">0</span></p>
+      </section>
+
+      <section class="delivery-schedule">
+        <label for="deliveryDate"
+          >Calendario de Selección de Días de Entrega:</label
+        >
+        <input type="date" id="deliveryDate" />
+      </section>
+
+      <section class="address">
+        <h2>Dirección de Entrega:</h2>
+        <label for="address">Dirección:</label>
+        <input type="text" id="address" />
+        <label for="locality">Localidad:</label>
+        <input type="text" id="locality" />
+        <label for="postalCode">Código Postal:</label>
+        <input type="text" id="postalCode" />
+        <label for="phone">Teléfono:</label>
+        <input type="text" id="phone" />
+      </section>
+
+      <section class="summary">
+        <h2>Resumen de Pedido:</h2>
+        <p>Viandas seleccionadas: $<span id="subtotal">0</span></p>
+        <p>Costo de envío: $<span id="shipping">50</span></p>
+        <p>Total: $<span id="grandTotal">50</span></p>
+      </section>
+
+      <button class="confirm-btn">Confirmar Pedido</button>
+    </div>
+
+    <script>
+      let total = 0;
+
+      function addToOrder() {
+        const viandaType = document.getElementById("viandaType").value;
+        const quantity = parseInt(document.getElementById("quantity").value);
+        const pricePerUnit = 250; // Assuming each item costs $250, adjust as needed.
+        const subtotal = pricePerUnit * quantity;
+
+        if (quantity > 0) {
+          total += subtotal;
+
+          // Add a row to the order table
+          const table = document
+            .getElementById("orderTable")
+            .getElementsByTagName("tbody")[0];
+          const row = table.insertRow();
+          row.innerHTML = `
+            <td>${viandaType}</td>
+            <td>${quantity}</td>
+            <td>$${subtotal}</td>
+            <td><button onclick="removeItem(this, ${subtotal})">X</button></td>
+        `;
+
+          // Update totals
+          document.getElementById("total").innerText = total;
+          document.getElementById("subtotal").innerText = total;
+          updateGrandTotal();
+        } else {
+          alert("Por favor, ingrese una cantidad válida.");
+        }
+      }
+
+      function removeItem(button, subtotal) {
+        // Remove the item from the table
+        const row = button.parentElement.parentElement;
+        row.parentElement.removeChild(row);
+
+        // Update totals
+        total -= subtotal;
+        document.getElementById("total").innerText = total;
+        document.getElementById("subtotal").innerText = total;
+        updateGrandTotal();
+      }
+
+      function updateGrandTotal() {
+        const shipping = 50;
+        const grandTotal = total + shipping;
+        document.getElementById("grandTotal").innerText = grandTotal;
+      }
+    </script>
+  </body>
+</html>
