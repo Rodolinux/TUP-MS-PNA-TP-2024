@@ -1,0 +1,11 @@
+Brondani-Kreitzer-Quintana
+Normalización:
+Gerente_sucursal no va porque es un empleado con rol de gerente.
+En 1FN en cliente al sacar la parte repetitiva se olvidan de la pk de sucursal; idem otras
+En facturación no es necesario id_factura si ya se tiene el tipo y número de comprobante.
+
+
+DER:
+Factura_Detalle con pk incorrectas. Lo mismo sucede con Factura_Maestro. Revisar el ej. 1 de la guía de normalización y corregir
+Falta la relación de Factura_detalle con Viandas.
+Un empleado puede recibir muchas capacitaciones. Corregir
