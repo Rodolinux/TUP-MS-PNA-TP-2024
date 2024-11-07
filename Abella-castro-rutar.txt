@@ -1,0 +1,9 @@
+Abella-castro-rutar
+Normalización
+La RU inicialmente tiene todos los campos juntos, no así con entidades separadas.
+La RU no coincide con la primera forma normal
+En la 1FN no debe haber FK
+Reveer la RU. Ej. En Cocina aparece hora de entrega de la vianda.
+DER
+Empleado y Fecha empleado son la misma entidad. Unificar
+Entre Stock y Cocina y entre Stock y compra no hay cardinalidad sino “si” y “no”. Corregir
