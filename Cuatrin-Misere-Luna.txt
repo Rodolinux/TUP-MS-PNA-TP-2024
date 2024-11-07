@@ -1,0 +1,7 @@
+Cuatrin-Misere-Luna 
+Normalización:
+RU incompleta, corregirla.
+Si hacen un disclaimer porque se agregaron tablas en el DER en la consulta, las mismas deben considarse desde el principio, es decir, deben incluirse en la RU y desde allí comenzar a normalizar. Corregir la normalización para ajustar el DER
+DER:
+No puede haber una sola tabla de usuarios.¿Acaso los clientes son empleados? Corregir 
+Ajustar las lineas del DER para evitar las relaciones ternarias. Se sugiere emplear lucidchart para rehacer el DER
